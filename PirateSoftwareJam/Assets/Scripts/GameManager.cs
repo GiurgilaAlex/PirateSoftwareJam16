@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public int enemiesAliveCount;
     public int objectsToDefendCount;
+    private bool isPaused = false;
+    private GameObject pauseScreen;
 
     private void Awake()
     {
@@ -21,6 +23,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex > 2)
+        {
+            pauseScreen = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
+        }
+    }
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex > 2)
+        {
+            //while player is loaded into levels
+
+            //pause the game. add a ui element to pause the screen
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                isPaused = !isPaused;
+                if (isPaused)
+                {
+                    Time.timeScale = 0f;
+                    pauseScreen.SetActive(true);
+                    AudioListener.pause = true;
+                }
+                else if (!isPaused)
+                {
+                    Time.timeScale = 1f;
+                    pauseScreen.SetActive(false);
+                    AudioListener.pause = false;
+                }
+            }
+        }
+    }
     public void EnemyKilled()
     {
         enemiesAliveCount--;
