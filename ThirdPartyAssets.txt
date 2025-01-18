@@ -1,2 +1,4 @@
 Asset Name - File Name - URL
 
+Font Asset
+Copyduck by Khurasan - Copyduck - https://www.dafont.com/copyduck.font?l[]=10&l[]=1
