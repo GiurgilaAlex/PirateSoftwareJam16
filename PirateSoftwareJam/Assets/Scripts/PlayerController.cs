@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,21 +29,21 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isPossessing && objectToPossess) //Space to possess or something else 
+        if (Input.GetKeyDown(KeyCode.Space) && !isPossessing && objectToPossess != null) //Space to possess or something else 
         {
             possessedObject = objectToPossess.gameObject.GetComponent<Possessable>();
             possessedObject.isPossessed = true;
             isPossessing = true;
-
+            Debug.Log("Possessed");
             sprite.gameObject.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isPossessing)
+        else if (Input.GetKeyDown(KeyCode.Space) && isPossessing)
         {
             possessedObject.isPossessed = false;
             isPossessing = false;
             possessedObject = null;
-
+            Debug.Log("Unpossessed");
             sprite.gameObject.SetActive(true);
         }
     }
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
             sprite.transform.localScale = new Vector3(-1,1,1);
         }
 
-        if (isPossessing && objectToPossess) //lock player to possessed object
+        if (isPossessing && possessedObject) //lock player to possessed object
         {
             transform.position = possessedObject.transform.position;
         }
