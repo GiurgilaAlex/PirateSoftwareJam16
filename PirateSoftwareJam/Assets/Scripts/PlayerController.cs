@@ -51,15 +51,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + speed * Time.deltaTime * movement.normalized);
-        
-        if (movement.x > 0)
-        {
-            sprite.transform.localScale = new Vector3(1,1,1);
-        }
-        else if (movement.x < 0)
-        {
-            sprite.transform.localScale = new Vector3(-1,1,1);
-        }
+        FlipSprite(movement.x);
 
         if (isPossessing && possessedObject) //lock player to possessed object
         {
@@ -67,9 +59,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Interact()
+    void FlipSprite(float x)
     {
-        
+        if (x > 0) { sprite.flipX = false; } //if sprite defaults to facing right else flip these around
+        else if (x < 0) { sprite.flipX = true; }
     }
 
     void OnTriggerEnter2D(Collider2D other)

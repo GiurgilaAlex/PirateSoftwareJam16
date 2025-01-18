@@ -20,8 +20,25 @@ public class Possessable : MonoBehaviour
         
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
 
     }
+
+    protected void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //outline on
+        }
+    }
+
+    protected void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //outline off
+        }
+    }
+
 }

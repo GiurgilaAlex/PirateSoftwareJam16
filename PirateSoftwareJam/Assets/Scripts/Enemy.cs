@@ -6,11 +6,15 @@ public class Enemy : MonoBehaviour
 {
     //Shared Enemy Mechanics
     protected Rigidbody2D rb;
+    [SerializeField] protected int maxHealth;
+    [SerializeField] protected int health;
+    protected Animator animator;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -19,8 +23,12 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public void OnHit()
+    public void OnHit(int damage)
     {
-        
+        health -= damage;
+        if (health <= 0)
+        {
+            //play death animation
+        }
     }
 }
