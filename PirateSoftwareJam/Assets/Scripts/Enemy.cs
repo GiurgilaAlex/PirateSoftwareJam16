@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rb;
     [SerializeField] protected int maxHealth;
     [SerializeField] protected int health;
-    protected Animator animator;
+    [SerializeField] protected Animator animator;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             //play death animation
+            animator.SetBool(0, true);
         }
     }
 }

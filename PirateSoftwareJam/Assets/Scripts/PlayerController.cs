@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
             possessedObject = objectToPossess.gameObject.GetComponent<Possessable>();
             possessedObject.isPossessed = true;
             isPossessing = true;
-            Debug.Log("Possessed");
             sprite.gameObject.SetActive(false);
         }
 
@@ -43,7 +42,6 @@ public class PlayerController : MonoBehaviour
             possessedObject.isPossessed = false;
             isPossessing = false;
             possessedObject = null;
-            Debug.Log("Unpossessed");
             sprite.gameObject.SetActive(true);
         }
     }
