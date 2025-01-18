@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] float speed = 5.0f; //change if needed. test out different values in the inspector.
+    [SerializeField] GameObject possessTooltip;
     private Vector2 movement;
     private Rigidbody2D rb;
     private Collider2D objectToPossess;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
             possessedObject.isPossessed = true;
             isPossessing = true;
             sprite.gameObject.SetActive(false);
+            possessTooltip.SetActive(false);
         }
 
         else if (Input.GetKeyDown(KeyCode.Space) && isPossessing)
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
             isPossessing = false;
             possessedObject = null;
             sprite.gameObject.SetActive(true);
+            possessTooltip.SetActive(true);
         }
     }
 
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Possessable"))
         {
             objectToPossess = other;
+            possessTooltip.SetActive(true);
         }
     }
 
@@ -76,6 +80,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Possessable"))
         {
             objectToPossess = null;
+            possessTooltip.SetActive(false);
         }
     }
 }
