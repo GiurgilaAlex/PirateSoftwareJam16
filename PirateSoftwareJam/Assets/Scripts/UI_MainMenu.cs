@@ -10,17 +10,17 @@ public class UI_MainMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void StartGame()
+    public void Options()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void Options()
+    public void LevelSelection()
     {
         SceneManager.LoadScene(2);
     }
 
-    public void LevelSelection()
+    public void StartGame()
     {
         SceneManager.LoadScene(3);
     }
