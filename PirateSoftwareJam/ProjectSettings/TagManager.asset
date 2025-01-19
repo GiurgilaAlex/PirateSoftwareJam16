@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Possessable
+  - CrystalBall
   layers:
   - Default
   - TransparentFX

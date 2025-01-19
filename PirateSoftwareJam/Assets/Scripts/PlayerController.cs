@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !isPossessing && objectToPossess != null) //Space to possess or something else 
         {
             possessedObject = objectToPossess.gameObject.GetComponent<Possessable>();
-            possessedObject.isPossessed = true;
+            possessedObject.SetIsPossessed(true);
             isPossessing = true;
             sprite.gameObject.SetActive(false);
             possessTooltip.SetActive(false);
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Space) && isPossessing)
         {
-            possessedObject.isPossessed = false;
+            possessedObject.SetIsPossessed(false);
             isPossessing = false;
             possessedObject = null;
             sprite.gameObject.SetActive(true);
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Possessable"))
+        if (other.gameObject.CompareTag("Possessable") || other.gameObject.CompareTag("CrystalBall"))
         {
             objectToPossess = other;
             possessTooltip.SetActive(true);
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Possessable"))
+        if (other.gameObject.CompareTag("Possessable") || other.gameObject.CompareTag("CrystalBall"))
         {
             objectToPossess = null;
             possessTooltip.SetActive(false);
