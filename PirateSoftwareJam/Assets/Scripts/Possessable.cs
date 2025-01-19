@@ -5,8 +5,8 @@ using UnityEngine;
 public class Possessable : MonoBehaviour
 {
     //Shared Object Mechanics
-    public bool isPossessed = false;
-    private Rigidbody2D rb;
+    protected bool isPossessed = false;
+    protected Rigidbody2D rb;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -14,15 +14,14 @@ public class Possessable : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    protected virtual void Update()
-    {
-        
-    }
-
     public virtual void Attack()
     {
 
+    }
+
+    public virtual void SetIsPossessed(bool value)
+    {
+        isPossessed = value;
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
