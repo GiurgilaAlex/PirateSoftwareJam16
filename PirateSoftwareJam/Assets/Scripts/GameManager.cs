@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int objectsToDefendCount;
     private bool isPaused = false;
     private GameObject pauseScreen;
+    private SceneTransition sceneTransition;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        sceneTransition = GameObject.Find("Scene Transition").GetComponent<SceneTransition>();
         if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             pauseScreen = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
         {
             //while player is loaded into levels
 
-            //pause the game. add a ui element to pause the screen
+            //pause the game. 
             if(Input.GetKeyDown(KeyCode.Escape))
             {
                 isPaused = !isPaused;
@@ -73,11 +75,11 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneTransition.StartLoad(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GoToNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneTransition.StartLoad(SceneManager.GetActiveScene().buildIndex+1);
     }
 }

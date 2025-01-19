@@ -5,23 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class UI_MainMenu : MonoBehaviour
 {
+    [SerializeField] SceneTransition sceneTransition;
+
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        sceneTransition.StartLoad(0);
     }
 
     public void Options()
     {
-        SceneManager.LoadScene(1);
+        sceneTransition.StartLoad(1);
     }
 
     public void LevelSelection()
     {
-        SceneManager.LoadScene(2);
+        sceneTransition.StartLoad(2);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(3);
+        sceneTransition.StartLoad(3);
     }
 }
