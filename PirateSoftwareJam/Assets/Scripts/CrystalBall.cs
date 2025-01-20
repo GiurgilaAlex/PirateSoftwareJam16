@@ -6,6 +6,8 @@ public class CrystalBall : Possessable
 {
     [SerializeField]
     private float speed = 2f;
+    [SerializeField]
+    private GameObject enemyDetection;
 
     private float xInput;
     private float amp = 0.2f, freq = 3f;
@@ -34,12 +36,22 @@ public class CrystalBall : Possessable
 
         if(isPossessed)
         {
+            enemyDetection.SetActive(true);
             transform.position += new Vector3(0, floatOffset, 0);
             initPos = transform.position;
             rb.isKinematic = true;
         } else
         {
+            enemyDetection.SetActive(false);
             rb.isKinematic = false;
         }
+    }
+
+    public void OnHit()
+    {
+        //Maybe have some death animation and some title with "you lost" added here
+
+        GameManager.instance.ObjectToDefendKilled();
+        Destroy(gameObject);
     }
 }

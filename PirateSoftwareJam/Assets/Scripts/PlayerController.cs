@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     private Collider2D objectToPossess;
     private Possessable possessedObject;
     private bool isPossessing = false;
+    private Collider2D ownCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        ownCollider = gameObject.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
             possessedObject.SetIsPossessed(true);
             isPossessing = true;
             sprite.gameObject.SetActive(false);
+            ownCollider.enabled = false;
             possessTooltip.SetActive(false);
         }
 
