@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
         {
             //play death animation
             animator.SetBool(0, true);
+            Destroy(gameObject);
         }
     }
 }

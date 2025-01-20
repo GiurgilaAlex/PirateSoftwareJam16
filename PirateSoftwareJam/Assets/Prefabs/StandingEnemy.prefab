@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4395700236471512994}
   - component: {fileID: 3430830618360505751}
   - component: {fileID: 7796317733430351004}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9528302, g: 0.82763416, b: 0.36405307, a: 1}
+  m_Color: {r: 0.6415094, g: 0.19828755, b: 0.18458524, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,8 +118,8 @@ GameObject:
   - component: {fileID: 5320040623796440421}
   - component: {fileID: 7110165030941259423}
   - component: {fileID: 1827373617495769666}
-  m_Layer: 0
-  m_Name: Enemy
+  m_Layer: 7
+  m_Name: StandingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7331a27b636366941bb68d0f9f401cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 1
   health: 0
   animator: {fileID: 7796317733430351004}
 --- !u!61 &7110165030941259423
