@@ -7,7 +7,7 @@ public class CrystalBall : Possessable
     [SerializeField]
     private float speed = 2f;
 
-    private float xMovement;
+    private float xInput;
     private float amp = 0.2f, freq = 3f;
     private Vector2 initPos;
     private float floatOffset = 0.5f;
@@ -16,7 +16,7 @@ public class CrystalBall : Possessable
     {
         if(isPossessed)
         {
-            xMovement = Input.GetAxisRaw("Horizontal");
+            xInput = Input.GetAxisRaw("Horizontal");
         }
     }
 
@@ -24,7 +24,7 @@ public class CrystalBall : Possessable
     {
         if(isPossessed)
         {
-            transform.position = new Vector2(transform.position.x + speed * Time.fixedDeltaTime * xMovement, Mathf.Sin(Time.fixedTime * freq) * amp + initPos.y);
+            transform.position = new Vector2(transform.position.x + speed * Time.fixedDeltaTime * xInput, Mathf.Sin(Time.fixedTime * freq) * amp + initPos.y);
         }
     }
 
