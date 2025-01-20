@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LanceProjectile : MonoBehaviour
 {
+    [SerializeField] private Collider2D coll;
+    [SerializeField] private Collider2D coll1;
     private Rigidbody2D rb;
 
     private void Start()
@@ -17,6 +19,18 @@ public class LanceProjectile : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
+            coll.enabled = false;
+            coll1.enabled = false;
+        }
+
+        if(collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy>().OnHit(1);
+        }
+
+        if(collision.CompareTag("CrystalBall"))
+        {
+            collision.GetComponent<CrystalBall>().OnHit();
         }
     }
 }
