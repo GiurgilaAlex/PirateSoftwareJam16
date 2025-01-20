@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Possessable
   - CrystalBall
+  - Wall
   layers:
   - Default
   - TransparentFX
