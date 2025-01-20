@@ -44,12 +44,7 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Space) && isPossessing)
         {
-            possessedObject.SetIsPossessed(false);
-            isPossessing = false;
-            possessedObject = null;
-            sprite.gameObject.SetActive(true);
-            ownCollider.enabled = true;
-            possessTooltip.SetActive(true);
+            UnPossess();
         }
     }
 
@@ -72,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Possessable") || other.gameObject.CompareTag("CrystalBall"))
+        if ((other.gameObject.CompareTag("Possessable") && other.gameObject.GetComponent<Possessable>().isUsed == false) || other.gameObject.CompareTag("CrystalBall"))
         {
             objectToPossess = other;
             possessTooltip.SetActive(true);
@@ -86,5 +81,13 @@ public class PlayerController : MonoBehaviour
             objectToPossess = null;
             possessTooltip.SetActive(false);
         }
+    }
+    
+    public void UnPossess()
+    {
+        possessedObject.SetIsPossessed(false);
+        isPossessing = false;
+        possessedObject = null;
+        sprite.gameObject.SetActive(true);
     }
 }
