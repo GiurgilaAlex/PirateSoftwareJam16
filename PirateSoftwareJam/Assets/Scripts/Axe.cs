@@ -10,7 +10,7 @@ public class Axe : Possessable
     [SerializeField] private GameObject shootingPoint;
     [SerializeField] private float arrowSpeed;
     [SerializeField] private PlayerController player;
-    [SerializeField] private GameObject vfx;
+    [SerializeField] private Collider2D triggerCollider;
 
     private float xInput;
     private float rotationValue = 0f;
@@ -26,20 +26,21 @@ public class Axe : Possessable
             if(Input.GetKeyDown(KeyCode.E)) 
             {
                 gameObject.tag = "Untagged";
-                rb.isKinematic = false;
+                rb.bodyType = RigidbodyType2D.Dynamic;
                 Vector2 direction = (projectileSpawnPoint.position - transform.position).normalized;
                 if(direction.x > 0f)
                 {
                     isGoingRight = true;
-                    vfx.transform.localScale = new Vector3(1, 1, 1);
+                    transform.localScale = new Vector3(1, 1, 1);
                 } else
                 {
                     isGoingRight = false;
-                    vfx.transform.localScale = new Vector3(-1, 1, 1);
+                    transform.localScale = new Vector3(-1, 1, 1);
                 }
                 rb.AddForce(direction * speed, ForceMode2D.Impulse);
                 player.UnPossess();
                 isThrownInTheAir = true;
+                StartCoroutine(DisableCollisionForABit());
             }
         } else
         {
@@ -60,9 +61,17 @@ public class Axe : Possessable
     {
         if (isPossessed)
         {
-            rotationValue = Mathf.Clamp(rotationValue + xInput * arrowSpeed * Time.fixedDeltaTime, -90, 90);
+            rotationValue = rotationValue + xInput * arrowSpeed * Time.fixedDeltaTime;
             shootingPoint.transform.rotation = Quaternion.Euler(0, 0, -rotationValue);
         }
+    }
+
+    private IEnumerator DisableCollisionForABit()
+    {
+        //Doing this so the axe doesn't slide on the ground if you throw it while is already colliding with it
+        triggerCollider.enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        triggerCollider.enabled = true;
     }
 
     public override void SetIsPossessed(bool value)
@@ -88,9 +97,18 @@ public class Axe : Possessable
         if(collision.CompareTag("Wall") || collision.CompareTag("Ground"))
         {
             gameObject.tag = "Possessable";
-            rb.velocity = Vector2.zero;
-            rb.isKinematic = true;
+            rb.bodyType = RigidbodyType2D.Static;
             isThrownInTheAir = false;
+        }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy>().OnHit(1);
+        }
+
+        if (collision.CompareTag("CrystalBall"))
+        {
+            collision.GetComponent<CrystalBall>().OnHit();
         }
     }
 }
