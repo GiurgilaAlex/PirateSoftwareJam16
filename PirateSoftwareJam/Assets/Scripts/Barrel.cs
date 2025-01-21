@@ -1,17 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Barrel : Possessable
 {
     private float direction = 0; //-1 == roll left, 0 == no direction set, 1 == roll right
     private float input;
+    private  PlayerController player;
     [SerializeField] private float pushForce;
     [SerializeField] private GameObject barrelStanding;
     [SerializeField] private GameObject barrelRolling;
     [SerializeField] private GameObject rollDir;
-    [SerializeField] private GameObject player;
+
+    protected override void Start()
+    {
+        base.Start();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
 
     private void Update()
     {   if (isPossessed)
@@ -30,7 +37,7 @@ public class Barrel : Possessable
                 gameObject.GetComponent<CircleCollider2D>().enabled = true;
                 barrelRolling.SetActive(true);
                 rb.AddForce(Vector2.right * pushForce * direction, ForceMode2D.Impulse);
-                player.GetComponent<PlayerController>().UnPossess();
+                player.UnPossess();
                 isUsed = true;
 
             }
@@ -48,6 +55,21 @@ public class Barrel : Possessable
         {
             rollDir.transform.rotation = Quaternion.Euler(90,180,0);
             rollDir.SetActive(false);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<Enemy>().OnHit(1);
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.CompareTag("CrystalBall"))
+        {
+            other.gameObject.GetComponent<CrystalBall>().OnHit();
+            Destroy(gameObject);
         }
     }
 

@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             //play death animation
-            animator.SetBool(0, true);
+            animator.SetBool("isDead", true);
             Destroy(gameObject);
         }
     }

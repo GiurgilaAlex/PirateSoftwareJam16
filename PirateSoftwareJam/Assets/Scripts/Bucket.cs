@@ -31,6 +31,13 @@ public class Bucket : Possessable
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<Enemy>().OnHit(1);
+            isUsed = true;
+        }
+
+        if (other.gameObject.CompareTag("CrystalBall"))
+        {
+            other.gameObject.GetComponent<CrystalBall>().OnHit();
+            isUsed = true;
         }
     }
 }
