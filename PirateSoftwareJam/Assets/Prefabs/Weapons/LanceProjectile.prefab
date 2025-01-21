@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coll: {fileID: 6486251108235174708}
   coll1: {fileID: 9166938070944302937}
+  destroyTimer: 3
 --- !u!61 &6486251108235174708
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8714330985596500928
 Transform:
   m_ObjectHideFlags: 0
@@ -166,7 +166,6 @@ MonoBehaviour:
   barrelStanding: {fileID: 5533224013458345135}
   barrelRolling: {fileID: 1769998237184623600}
   rollDir: {fileID: 5611850562234961533}
-  player: {fileID: 0}
 --- !u!61 &8683628850948483396
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -38,7 +38,6 @@ public class Barrel : Possessable
                 barrelRolling.SetActive(true);
                 rb.AddForce(Vector2.right * pushForce * direction, ForceMode2D.Impulse);
                 player.UnPossess();
-                isUsed = true;
 
             }
         }
@@ -68,8 +67,8 @@ public class Barrel : Possessable
 
         if (other.gameObject.CompareTag("CrystalBall"))
         {
-            other.gameObject.GetComponent<CrystalBall>().OnHit();
-            Destroy(gameObject);
+            //other.gameObject.GetComponent<CrystalBall>().OnHit();
+            //Destroy(gameObject);
         }
     }
 
