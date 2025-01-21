@@ -89,5 +89,6 @@ public class PlayerController : MonoBehaviour
         isPossessing = false;
         possessedObject = null;
         sprite.gameObject.SetActive(true);
+        ownCollider.enabled = true;
     }
 }

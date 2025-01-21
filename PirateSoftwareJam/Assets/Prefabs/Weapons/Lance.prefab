@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 3425546654010169249}
   - component: {fileID: 4737879853642256734}
   - component: {fileID: 26560284975035141}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lance
   m_TagString: Possessable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9006508844985769750
 Transform:
   m_ObjectHideFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730f213438b59b54db612caa0434fa57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUsed: 0
   shootingPoint: {fileID: 482908152301351921}
   projectile: {fileID: 6579388589175136567, guid: 93d7103610f08234499b403055b18164, type: 3}
   projectileSpawnPoint: {fileID: 3997224036677111591}
@@ -140,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8276607604221097542}
   - component: {fileID: 1150918549152745507}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,6 +266,22 @@ PrefabInstance:
     - target: {fileID: 4342676166489850847, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
       propertyPath: m_Name
       value: ShootingPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342676166489850847, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715591226617189237, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862848653211281800, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764477783347193959, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
