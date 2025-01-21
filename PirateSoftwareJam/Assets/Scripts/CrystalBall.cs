@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class CrystalBall : Possessable
 {
-    [SerializeField]
-    private float speed = 2f;
-    [SerializeField]
-    private GameObject enemyDetection;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private GameObject enemyDetection;
 
     private float xInput;
     private float amp = 0.2f, freq = 3f;

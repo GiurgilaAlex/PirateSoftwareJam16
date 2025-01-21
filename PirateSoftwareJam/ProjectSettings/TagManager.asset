@@ -8,6 +8,7 @@ TagManager:
   - Possessable
   - CrystalBall
   - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX
