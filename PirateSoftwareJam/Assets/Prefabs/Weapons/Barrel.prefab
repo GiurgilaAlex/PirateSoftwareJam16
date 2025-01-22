@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4034681343821732816}
   - component: {fileID: 2452562617644858758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel Rolling
   m_TagString: Possessable
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1369089414964126901}
   - component: {fileID: 8683628850948483396}
   - component: {fileID: 5695638547174635140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel
   m_TagString: Possessable
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7320264014273042397}
   - component: {fileID: 3113150346235837827}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel Standing
   m_TagString: Possessable
   m_Icon: {fileID: 0}
@@ -383,8 +383,24 @@ PrefabInstance:
       value: ShootingPoint
       objectReference: {fileID: 0}
     - target: {fileID: 4342676166489850847, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342676166489850847, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715591226617189237, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862848653211281800, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764477783347193959, guid: 1a6b9e5811964d74f8c5d1ca38383fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

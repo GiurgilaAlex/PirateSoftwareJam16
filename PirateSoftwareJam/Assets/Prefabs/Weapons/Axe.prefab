@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2556765493936147446}
   - component: {fileID: 5027970400420694103}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5548853042903246264}
   - component: {fileID: 861287211372970347}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 151947566461711911}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 414954007448956056}
   - component: {fileID: 8570594094070873518}
   - component: {fileID: 1817668561874328278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Axe
   m_TagString: Possessable
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7131288113034740600}
   - component: {fileID: 3247183042076006333}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

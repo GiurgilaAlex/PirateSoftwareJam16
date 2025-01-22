@@ -32,12 +32,12 @@ public class Barrel : Possessable
 
             if (direction != 0 && Input.GetKeyDown(KeyCode.E))
             {
+                rollDir.transform.rotation = Quaternion.Euler(90,180,0);//hide after rolling.
                 barrelStanding.SetActive(false);
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 gameObject.GetComponent<CircleCollider2D>().enabled = true;
                 barrelRolling.SetActive(true);
                 rb.AddForce(Vector2.right * pushForce * direction, ForceMode2D.Impulse);
-                player.UnPossess();
 
             }
         }
@@ -62,6 +62,7 @@ public class Barrel : Possessable
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<Enemy>().OnHit(1);
+            player.UnPossess();
             Destroy(gameObject);
         }
 
