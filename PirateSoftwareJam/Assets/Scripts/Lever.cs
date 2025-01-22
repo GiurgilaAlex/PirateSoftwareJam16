@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    [SerializeField] GameObject mechanism;
+    [SerializeField] Mechanism mechanism;
     [SerializeField] Animator leverAnimator;
     [SerializeField] GameObject closedCollider;
     [SerializeField] GameObject openCollider;
@@ -24,19 +24,22 @@ public class Lever : MonoBehaviour
         if (isOpen)
         {
             //set mechanism to open
+            leverAnimator.SetBool("isOpen", isOpen);
             StartCoroutine(FlipLever(isOpen));
+            mechanism.Open();
         }
         else
         {   
             //set mechanism to closed
+            leverAnimator.SetBool("isOpen", isOpen);
             StartCoroutine(FlipLever(isOpen));
+            mechanism.Close();
         }
     }
 
     IEnumerator FlipLever(bool _isOpen)
     {
         boxCollider2D.offset = new Vector2(-boxCollider2D.offset.x,boxCollider2D.offset.y);
-        leverAnimator.SetBool("isOpen", _isOpen);
         yield return new WaitForSeconds(1);
         openCollider.SetActive(_isOpen);
         closedCollider.SetActive(!_isOpen);

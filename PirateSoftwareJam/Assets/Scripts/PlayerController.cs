@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
         if (isPossessing && possessedObject) //lock player to possessed object
         {
             transform.position = possessedObject.transform.position;
+            movement = Vector2.zero;
         }
     }
 

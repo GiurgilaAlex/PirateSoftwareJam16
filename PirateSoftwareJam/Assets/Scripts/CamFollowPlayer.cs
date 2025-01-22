@@ -5,6 +5,8 @@ using UnityEngine;
 public class CamFollowPlayer : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] Camera cam;
+    [SerializeField] float scrollSpeed;
 
 
     // Start is called before the first frame update
@@ -13,6 +15,10 @@ public class CamFollowPlayer : MonoBehaviour
         
     }
 
+    void Update()
+    {
+        cam.orthographicSize += Input.mouseScrollDelta.y * scrollSpeed;
+    }
     // Update is called once per frame
     void LateUpdate()
     {

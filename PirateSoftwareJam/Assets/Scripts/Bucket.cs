@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bucket : Possessable
@@ -28,7 +29,7 @@ public class Bucket : Possessable
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (!isUsed && other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<Enemy>().OnHit(1);
             isUsed = true;

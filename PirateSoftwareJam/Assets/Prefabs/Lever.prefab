@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8387156467148777971}
   - component: {fileID: 7127383888987864241}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 71335967678224437}
   - component: {fileID: 757082735303577543}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 144343290887601714}
   - component: {fileID: 5013750584656545301}
   - component: {fileID: 4189277689667306948}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4598466927834766876}
   - component: {fileID: 7817176742072844318}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ClosedCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6266890756262101461}
   - component: {fileID: 6935583599100668880}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4253931002084666042}
   - component: {fileID: 7749661392560474966}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: OpenCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8958810030349670907}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shaft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 258134709777930927}
   - component: {fileID: 268478070150651663}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shaft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
