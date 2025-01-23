@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6033498451168207855}
   - component: {fileID: 3736943725979882100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 9166938070944302937}
   - component: {fileID: 1761830054453576593}
   - component: {fileID: 6486251108235174708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LanceProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coll: {fileID: 6486251108235174708}
   coll1: {fileID: 9166938070944302937}
-  destroyTimer: 3
+  destroyTimer: 1
 --- !u!61 &6486251108235174708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4199429374469909683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3704014534463031721}
   - component: {fileID: 1356882983609275700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
