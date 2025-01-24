@@ -38,7 +38,8 @@ public class CrystalBall : Possessable
                 posY = transform.position.y;
             }
 
-            transform.position = new Vector2(transform.position.x + speed * Time.fixedDeltaTime * xInput, posY);
+            //rb.position = new Vector2(rb.position.x + speed * Time.fixedDeltaTime * xInput, Mathf.Sin(Time.fixedTime * freq) * amp + initPos.y);
+            rb.MovePosition(new Vector2(rb.position.x + speed * Time.fixedDeltaTime * xInput, Mathf.Sin(Time.fixedTime * freq) * amp + posY));
         }
     }
 
@@ -51,11 +52,13 @@ public class CrystalBall : Possessable
             enemyDetection.SetActive(true);
             transform.position += new Vector3(0, floatOffset, 0);
             initPos = transform.position;
-            rb.isKinematic = true;
+            //rb.isKinematic = true;
+            rb.gravityScale = 0f;
         } else
         {
             enemyDetection.SetActive(false);
-            rb.isKinematic = false;
+            //rb.isKinematic = false;
+            rb.gravityScale = 1f;
         }
     }
 

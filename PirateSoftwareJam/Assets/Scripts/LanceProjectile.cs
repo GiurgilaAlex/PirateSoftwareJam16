@@ -29,7 +29,7 @@ public class LanceProjectile : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Enemy>().OnHit(1);
-            StartCoroutine(TimedDestroy());
+            StartCoroutine(TimedDestroy(0.1f));
         }
 
         else if(collision.CompareTag("CrystalBall"))
@@ -40,17 +40,18 @@ public class LanceProjectile : MonoBehaviour
         else
         {
 
-            StartCoroutine(TimedDestroy());
+            StartCoroutine(TimedDestroy(destroyTimer));
         }
     }
 
-    IEnumerator TimedDestroy()
+    IEnumerator TimedDestroy(float _destroyTimer)
     {
         rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
         rb.isKinematic = true;
         coll.enabled = false;
         coll1.enabled = false;
-        yield return new WaitForSeconds(destroyTimer);
+        yield return new WaitForSeconds(_destroyTimer);
         Destroy(gameObject);
     }
     
