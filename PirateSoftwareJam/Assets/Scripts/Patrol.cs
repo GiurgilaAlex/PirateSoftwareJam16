@@ -10,36 +10,67 @@ public class Patrol : MonoBehaviour
 
     private Transform currentPoint;
     private Rigidbody2D rb;
+    private Enemy enemy;
+    private bool isEnemyKilled = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        enemy = GetComponent<Enemy>();
         currentPoint = pointB.transform;
+
+        if (enemy != null)
+        {
+            enemy.EnemyKilledEvent += HandleEnemyKilled;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if(enemy != null)
+        {
+            enemy.EnemyKilledEvent += HandleEnemyKilled;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if(enemy != null)
+        {
+            enemy.EnemyKilledEvent -= HandleEnemyKilled;
+        }
     }
 
     private void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
+        if(!isEnemyKilled)
+        {
+            if (currentPoint == pointB.transform)
+            {
+                rb.velocity = new Vector2(speed, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector2(-speed, 0);
+            }
 
-        if(currentPoint == pointB.transform)
-        {
-            rb.velocity = new Vector2(speed, 0);
-        } else
-        {
-            rb.velocity = new Vector2(-speed, 0);
-        }
+            if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
+            {
+                Flip();
+                currentPoint = pointA.transform;
+            }
 
-        if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
-        {
-            Flip();
-            currentPoint = pointA.transform;
+            if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform)
+            {
+                Flip();
+                currentPoint = pointB.transform;
+            }
         }
+    }
 
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform)
-        {
-            Flip();
-            currentPoint = pointB.transform;
-        }
+    private void HandleEnemyKilled()
+    {
+        isEnemyKilled = true;
     }
 
     private void Flip()

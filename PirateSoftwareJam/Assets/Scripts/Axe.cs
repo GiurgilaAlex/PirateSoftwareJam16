@@ -25,7 +25,6 @@ public class Axe : Possessable
         
             if(Input.GetKeyDown(KeyCode.E)) 
             {
-                gameObject.tag = "Untagged";
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 Vector2 direction = (projectileSpawnPoint.position - transform.position).normalized;
                 if(direction.x > 0f)
@@ -38,18 +37,18 @@ public class Axe : Possessable
                     transform.localScale = new Vector3(-1, 1, 1);
                 }
                 rb.AddForce(direction * speed, ForceMode2D.Impulse);
-                player.UnPossess();
                 isThrownInTheAir = true;
-                StartCoroutine(DisableCollisionForABit());
+                shootingPoint.SetActive(false);
+                StartCoroutine(CheckCollisionAfterAWHile());
             }
-        } else
-        {
-            if(isThrownInTheAir)
+
+            if (isThrownInTheAir)
             {
-                if(isGoingRight)
+                if (isGoingRight)
                 {
                     transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
-                } else
+                }
+                else
                 {
                     transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
                 }
@@ -66,12 +65,35 @@ public class Axe : Possessable
         }
     }
 
-    private IEnumerator DisableCollisionForABit()
+    private IEnumerator CheckCollisionAfterAWHile()
     {
-        //Doing this so the axe doesn't slide on the ground if you throw it while is already colliding with it
-        triggerCollider.enabled = false;
+        //We check this because if the axe is already colliding with the ground
+        //and the player pushes it into the ground, then OnTriggerEnter2D won't get called
+
         yield return new WaitForSeconds(0.2f);
-        triggerCollider.enabled = true;
+
+        Collider2D[] results = new Collider2D[2];
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.NoFilter();
+
+        int count = triggerCollider.OverlapCollider(filter, results);
+
+        if(count > 0)
+        {
+            for(int i = 0; i < count; i++)
+            {
+                if (results[i].CompareTag("Wall") || results[i].CompareTag("Ground"))
+                {
+                    rb.bodyType = RigidbodyType2D.Static;
+                    isThrownInTheAir = false;
+
+                    if(isPossessed)
+                    {
+                        shootingPoint.SetActive(true);
+                    }
+                }
+            }
+        }
     }
 
     public override void SetIsPossessed(bool value)
@@ -96,17 +118,20 @@ public class Axe : Possessable
 
         if(collision.CompareTag("Wall") || collision.CompareTag("Ground"))
         {
-            gameObject.tag = "Possessable";
             rb.bodyType = RigidbodyType2D.Static;
             isThrownInTheAir = false;
+            if(isPossessed)
+            {
+                shootingPoint.SetActive(true);
+            }
         }
 
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && isPossessed && isThrownInTheAir)
         {
             collision.GetComponent<Enemy>().OnHit(1);
         }
 
-        if (collision.CompareTag("CrystalBall"))
+        if (collision.CompareTag("CrystalBall") && isPossessed && isThrownInTheAir)
         {
             collision.GetComponent<CrystalBall>().OnHit();
         }

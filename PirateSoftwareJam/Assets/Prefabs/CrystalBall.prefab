@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3166751338276345940}
   - component: {fileID: 8515156041185763495}
+  - component: {fileID: 6647686180293983186}
   m_Layer: 10
   m_Name: VFX
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6647686180293983186
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63865485878824370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c39993af2d086164286ccc5d4d816d1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5630182970441378950
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b78b04a26f7f7479e26b530dc52ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crystalBall: {fileID: 7254696758216182397}
 --- !u!1 &6808652841964526222
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,3 +300,4 @@ MonoBehaviour:
   isUsed: 0
   speed: 5
   enemyDetection: {fileID: 5630182970441378950}
+  anim: {fileID: 6647686180293983186}

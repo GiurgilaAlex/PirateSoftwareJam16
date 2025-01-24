@@ -6,11 +6,18 @@ public class CrystalBall : Possessable
 {
     [SerializeField] private float speed = 2f;
     [SerializeField] private GameObject enemyDetection;
-
+    [SerializeField] private Animator anim;
+    
     private float xInput;
     private float amp = 0.2f, freq = 3f;
     private Vector2 initPos;
     private float floatOffset = 0.5f;
+    private bool isDestroyed = false;
+
+    protected override void Start()
+    {
+        base.Start();
+    }
 
     private void Update()
     {
@@ -24,8 +31,15 @@ public class CrystalBall : Possessable
     {
         if(isPossessed)
         {
+            float posY = Mathf.Sin(Time.fixedTime * freq) * amp + initPos.y;
+
+            if (isDestroyed)
+            {
+                posY = transform.position.y;
+            }
+
             //rb.position = new Vector2(rb.position.x + speed * Time.fixedDeltaTime * xInput, Mathf.Sin(Time.fixedTime * freq) * amp + initPos.y);
-            rb.MovePosition(new Vector2(rb.position.x + speed * Time.fixedDeltaTime * xInput, Mathf.Sin(Time.fixedTime * freq) * amp + initPos.y));
+            rb.MovePosition(new Vector2(rb.position.x + speed * Time.fixedDeltaTime * xInput, Mathf.Sin(Time.fixedTime * freq) * amp + posY));
         }
     }
 
@@ -50,9 +64,14 @@ public class CrystalBall : Possessable
 
     public void OnHit()
     {
-        //Maybe have some death animation and some title with "you lost" added here
+        isDestroyed = true;
+        anim.SetTrigger("Death");
+        StartCoroutine(WaitAndResetLevel());
+    }
 
+    private IEnumerator WaitAndResetLevel()
+    {
+        yield return new WaitForSeconds(0.5f);
         GameManager.instance.ObjectToDefendKilled();
-        Destroy(gameObject);
     }
 }
