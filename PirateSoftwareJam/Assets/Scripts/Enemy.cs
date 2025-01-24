@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected int maxHealth;
     [SerializeField] protected int health;
     [SerializeField] protected Animator animator;
+
+    public event Action EnemyKilledEvent;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -28,8 +31,8 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            //play death animation
-            animator.SetBool("isDead", true);
+            EnemyKilledEvent?.Invoke();
+            animator.SetTrigger("Death");
             Destroy(gameObject);
         }
     }

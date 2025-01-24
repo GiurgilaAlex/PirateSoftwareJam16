@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] float speed = 5.0f; //change if needed. test out different values in the inspector.
     [SerializeField] GameObject possessTooltip;
+    private Animator anim;
     private Vector2 movement;
     private Rigidbody2D rb;
     private Collider2D objectToPossess;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         ownCollider = gameObject.GetComponent<Collider2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -45,6 +47,14 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space) && isPossessing)
         {
             UnPossess();
+        }
+
+        if(movement != Vector2.zero)
+        {
+            anim.SetBool("isMoving", true);
+        } else
+        {
+            anim.SetBool("isMoving", false);
         }
     }
 

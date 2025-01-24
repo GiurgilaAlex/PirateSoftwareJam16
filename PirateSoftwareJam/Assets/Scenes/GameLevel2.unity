@@ -1195,6 +1195,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7931689356844232186, guid: 1d5b7784f63530943bcd3a07becd6f46, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1bb51fa2e235aa4aad708d79da0dcb1, type: 3}
     - target: {fileID: 8902429236897613315, guid: 1d5b7784f63530943bcd3a07becd6f46, type: 3}
       propertyPath: m_Name
       value: Bucket
@@ -1263,7 +1267,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Paused
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b639c13e40f2e8b44ba4292869308d52, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 30fdce2bce062da47820c9060770f668, type: 2}
   m_sharedMaterial: {fileID: 917356565593641642, guid: b639c13e40f2e8b44ba4292869308d52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1327,7 +1331,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1498623784
