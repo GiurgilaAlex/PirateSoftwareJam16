@@ -5,7 +5,7 @@ using UnityEngine;
 public class Possessable : MonoBehaviour
 {
     //Shared Object Mechanics
-    protected bool isPossessed = false;
+    public bool isPossessed = false;
     public bool isUsed = false;
     protected Rigidbody2D rb;
 
