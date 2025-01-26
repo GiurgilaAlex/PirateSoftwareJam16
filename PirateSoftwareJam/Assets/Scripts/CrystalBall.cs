@@ -7,12 +7,10 @@ public class CrystalBall : Possessable
     [SerializeField] private float speed = 2f;
     [SerializeField] private GameObject enemyDetection;
     [SerializeField] private Animator anim;
+    [SerializeField] private LayerMask groundLayerMask;
     
     private float xInput;
-    private float amp = 0.2f, freq = 3f;
-    private Vector2 initPos;
     private float floatOffset = 0.5f;
-    private bool isDestroyed = false;
 
     protected override void Start()
     {
@@ -31,15 +29,26 @@ public class CrystalBall : Possessable
     {
         if(isPossessed)
         {
-            float posY = Mathf.Sin(Time.fixedTime * freq) * amp + initPos.y;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, groundLayerMask);
 
-            if (isDestroyed)
+            // If the ray hits something
+            if (hit.collider != null)
             {
-                posY = transform.position.y;
+                // Draw a green line from the origin to the hit point
+                Debug.DrawLine(transform.position, hit.point, Color.green);
+                Debug.Log("Hit object: " + hit.collider.gameObject.name);
+                Debug.Log(rb.isKinematic);
+                rb.AddForce(transform.up * (2 / (hit.distance / 2)));
+            }
+            else
+            {
+                // If the ray doesn't hit, draw a red line for the full length of the ray
+                Debug.DrawRay(transform.position, -Vector2.up, Color.red);
             }
 
-            //rb.position = new Vector2(rb.position.x + speed * Time.fixedDeltaTime * xInput, Mathf.Sin(Time.fixedTime * freq) * amp + initPos.y);
-            rb.MovePosition(new Vector2(rb.position.x + speed * Time.fixedDeltaTime * xInput, Mathf.Sin(Time.fixedTime * freq) * amp + posY));
+            //This needs to be set like this so it won't mess up the gravity
+            Vector2 newVelocity = new Vector2(xInput * speed, rb.velocity.y);
+            rb.velocity = newVelocity;
         }
     }
 
@@ -49,22 +58,21 @@ public class CrystalBall : Possessable
 
         if(isPossessed)
         {
+            Vector3 pos = transform.position;
+            pos.y -= 0.5f;
+            transform.position = pos;
+            anim.SetTrigger("PickUp");
             enemyDetection.SetActive(true);
             transform.position += new Vector3(0, floatOffset, 0);
-            initPos = transform.position;
-            //rb.isKinematic = true;
-            rb.gravityScale = 0f;
         } else
         {
+            anim.SetTrigger("Drop");
             enemyDetection.SetActive(false);
-            //rb.isKinematic = false;
-            rb.gravityScale = 1f;
         }
     }
 
     public void OnHit()
     {
-        isDestroyed = true;
         anim.SetTrigger("Death");
         StartCoroutine(WaitAndResetLevel());
     }

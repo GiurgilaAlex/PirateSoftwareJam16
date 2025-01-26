@@ -1123,10 +1123,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2743203380549858396, guid: c3ccab93de4ce3946bc81b76ae8b11c8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8714330985596500928, guid: c3ccab93de4ce3946bc81b76ae8b11c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.6
@@ -1184,7 +1180,7 @@ GameObject:
   - component: {fileID: 858792552}
   - component: {fileID: 858792551}
   - component: {fileID: 858792550}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1338,7 @@ GameObject:
   - component: {fileID: 996600065}
   - component: {fileID: 996600064}
   - component: {fileID: 996600063}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square (6)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1500,7 +1496,7 @@ GameObject:
   - component: {fileID: 1142654491}
   - component: {fileID: 1142654490}
   - component: {fileID: 1142654489}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square (7)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1794,6 +1790,10 @@ PrefabInstance:
     - target: {fileID: 8562010493593247226, guid: 79a207a4141cf814ba9e05e27c646b3c, type: 3}
       propertyPath: m_Name
       value: Scene Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562010493593247226, guid: 79a207a4141cf814ba9e05e27c646b3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2650,7 +2650,7 @@ GameObject:
   - component: {fileID: 1898379210}
   - component: {fileID: 1898379209}
   - component: {fileID: 1898379208}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2819,7 +2819,7 @@ GameObject:
   - component: {fileID: 1973969443}
   - component: {fileID: 1973969442}
   - component: {fileID: 1973969441}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square (5)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3030,37 +3030,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 788646713974435508, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 788646713974435508, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 788646713974435508, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 788646713974435508, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
-      propertyPath: m_UseFullKinematicContacts
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766378978992022254, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6808652841964526222, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
       propertyPath: m_Name
       value: CrystalBall
       objectReference: {fileID: 0}
     - target: {fileID: 9144020965873917140, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.21
+      value: -6.33
       objectReference: {fileID: 0}
     - target: {fileID: 9144020965873917140, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.73
+      value: -2.84
       objectReference: {fileID: 0}
     - target: {fileID: 9144020965873917140, guid: 5871295780ec7cd4b80cf57f8f915c69, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3109,11 +3089,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3283430066421894431, guid: 79ccb37a3c5bb2c4f8742dfdce4e7cb7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.58
+      value: -7.05
       objectReference: {fileID: 0}
     - target: {fileID: 3283430066421894431, guid: 79ccb37a3c5bb2c4f8742dfdce4e7cb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.31
+      value: -1.84
       objectReference: {fileID: 0}
     - target: {fileID: 3283430066421894431, guid: 79ccb37a3c5bb2c4f8742dfdce4e7cb7, type: 3}
       propertyPath: m_LocalPosition.z

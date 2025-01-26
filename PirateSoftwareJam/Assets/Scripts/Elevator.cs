@@ -66,12 +66,19 @@ public class Elevator : Mechanism
         if((other.gameObject.CompareTag("CrystalBall") | other.gameObject.CompareTag("Possessable")) && !other.gameObject.GetComponent<Possessable>().isPossessed)
         {
             other.transform.SetParent(gameObject.transform);
+
             Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
             otherRb.isKinematic = true;
             otherRb.velocity = rb.velocity;
             otherRb.angularVelocity = rb.angularVelocity;
         }
         
+        //Added this so the isKinematic won't stay true when the object has been possessed while inside the elevator
+        if(other.gameObject.GetComponent<Possessable>().isPossessed)
+        {
+            other.transform.SetParent(null);
+            other.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        }
     }
 
     void OnCollisionExit2D(Collision2D other)
