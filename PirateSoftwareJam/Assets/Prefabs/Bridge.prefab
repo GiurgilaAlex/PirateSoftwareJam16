@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7783855337622117715}
   - component: {fileID: 3044170397155942004}
   - component: {fileID: 3783995434569982986}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8986127569976100546}
   - component: {fileID: 8467490819435215475}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

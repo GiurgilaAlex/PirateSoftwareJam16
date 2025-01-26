@@ -235,7 +235,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -268,7 +268,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 6808652841964526222}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -277,14 +277,14 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7254696758216182397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75df8981bdbb4344dbf4e89b006abbcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPossessed: 0
   isUsed: 0
   speed: 5
   enemyDetection: {fileID: 5630182970441378950}
   anim: {fileID: 6647686180293983186}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 16384
