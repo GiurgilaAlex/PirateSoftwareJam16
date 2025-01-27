@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -83,7 +84,10 @@ public class PlayerController : MonoBehaviour
         if ((other.gameObject.CompareTag("Possessable") && other.gameObject.GetComponent<Possessable>().isUsed == false) || other.gameObject.CompareTag("CrystalBall"))
         {
             objectToPossess = other;
-            possessTooltip.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                possessTooltip.SetActive(true);
+            }
             other.GetComponent<Possessable>().spriteOutline.UpdateOutline(1);
         }
 
