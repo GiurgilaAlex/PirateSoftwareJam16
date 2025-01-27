@@ -9,6 +9,7 @@ public class Possessable : MonoBehaviour
     public bool isUsed = false;
     protected Rigidbody2D rb;
     protected PlayerController player;
+    public SpriteOutline spriteOutline;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class Possessable : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<PlayerController>();
+        spriteOutline = transform.GetChild(0).GetComponent<SpriteOutline>();
     }
 
     public virtual void Attack()
@@ -33,6 +35,7 @@ public class Possessable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //outline on
+            //spriteOutline.UpdateOutline(1);
         }
 
         if(other.gameObject.CompareTag("BlockEnemy"))
@@ -46,6 +49,7 @@ public class Possessable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //outline off
+            //spriteOutline.UpdateOutline(0);
         }
     }
 

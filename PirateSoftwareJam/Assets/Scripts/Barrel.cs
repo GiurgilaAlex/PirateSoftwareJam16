@@ -9,9 +9,9 @@ public class Barrel : Possessable
     private float direction = 0; //-1 == roll left, 0 == no direction set, 1 == roll right
     private float input;
     [SerializeField] private float pushForce;
-    [SerializeField] private GameObject barrelStanding;
-    [SerializeField] private GameObject barrelRolling;
     [SerializeField] private GameObject rollDir;
+    [SerializeField] private SpriteRenderer barrelSprite;
+    [SerializeField] private Sprite rollingBarrel;
 
     protected override void Start()
     {
@@ -31,10 +31,9 @@ public class Barrel : Possessable
             if (direction != 0 && Input.GetKeyDown(KeyCode.E))
             {
                 rollDir.transform.rotation = Quaternion.Euler(90,180,0);//hide after rolling.
-                barrelStanding.SetActive(false);
+                barrelSprite.sprite = rollingBarrel;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 gameObject.GetComponent<CircleCollider2D>().enabled = true;
-                barrelRolling.SetActive(true);
                 rb.AddForce(Vector2.right * pushForce * direction, ForceMode2D.Impulse);
 
             }
