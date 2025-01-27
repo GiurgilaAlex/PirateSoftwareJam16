@@ -12,11 +12,6 @@ public class CrystalBall : Possessable
     private float xInput;
     private float floatOffset = 0.5f;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
     private void Update()
     {
         if(isPossessed)
@@ -31,19 +26,9 @@ public class CrystalBall : Possessable
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, groundLayerMask);
 
-            // If the ray hits something
             if (hit.collider != null)
             {
-                // Draw a green line from the origin to the hit point
-                Debug.DrawLine(transform.position, hit.point, Color.green);
-                Debug.Log("Hit object: " + hit.collider.gameObject.name);
-                Debug.Log(rb.isKinematic);
                 rb.AddForce(transform.up * (2 / (hit.distance / 2)));
-            }
-            else
-            {
-                // If the ray doesn't hit, draw a red line for the full length of the ray
-                Debug.DrawRay(transform.position, -Vector2.up, Color.red);
             }
 
             //This needs to be set like this so it won't mess up the gravity

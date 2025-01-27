@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Possessable possessedObject;
     private bool isPossessing = false;
     private Collider2D ownCollider;
+    private bool isBlockedByEnemy = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!isPossessing)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isPossessing && objectToPossess != null) //Space to possess or something else 
+        if (!isBlockedByEnemy && Input.GetKeyDown(KeyCode.Space) && !isPossessing && objectToPossess != null) //Space to possess or something else 
         {
             possessedObject = objectToPossess.gameObject.GetComponent<Possessable>();
             possessedObject.SetIsPossessed(true);
@@ -83,6 +85,19 @@ public class PlayerController : MonoBehaviour
             objectToPossess = other;
             possessTooltip.SetActive(true);
         }
+
+        if(other.gameObject.CompareTag("BlockEnemy"))
+        {
+            isBlockedByEnemy = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("BlockEnemy"))
+        {
+            isBlockedByEnemy = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -92,11 +107,19 @@ public class PlayerController : MonoBehaviour
             objectToPossess = null;
             possessTooltip.SetActive(false);
         }
+
+        if (other.gameObject.CompareTag("BlockEnemy"))
+        {
+            isBlockedByEnemy = false;
+        }
     }
     
     public void UnPossess()
     {
-        possessedObject.SetIsPossessed(false);
+        if(possessedObject)
+        {
+            possessedObject.SetIsPossessed(false);
+        }
         isPossessing = false;
         possessedObject = null;
         sprite.gameObject.SetActive(true);

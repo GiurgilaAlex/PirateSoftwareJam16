@@ -9,7 +9,6 @@ public class Axe : Possessable
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private GameObject shootingPoint;
     [SerializeField] private float arrowSpeed;
-    [SerializeField] private PlayerController player;
     [SerializeField] private Collider2D triggerCollider;
 
     private float xInput;
@@ -126,12 +125,12 @@ public class Axe : Possessable
             }
         }
 
-        if (collision.CompareTag("Enemy") && isPossessed && isThrownInTheAir)
+        if (collision.CompareTag("Enemy") && isThrownInTheAir)
         {
             collision.GetComponent<Enemy>().OnHit(1);
         }
 
-        if (collision.CompareTag("CrystalBall") && isPossessed && isThrownInTheAir)
+        if (collision.CompareTag("CrystalBall") && isThrownInTheAir)
         {
             collision.GetComponent<CrystalBall>().OnHit();
         }

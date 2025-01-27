@@ -8,7 +8,6 @@ public class Barrel : Possessable
 {
     private float direction = 0; //-1 == roll left, 0 == no direction set, 1 == roll right
     private float input;
-    private  PlayerController player;
     [SerializeField] private float pushForce;
     [SerializeField] private GameObject barrelStanding;
     [SerializeField] private GameObject barrelRolling;
@@ -17,7 +16,6 @@ public class Barrel : Possessable
     protected override void Start()
     {
         base.Start();
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     private void Update()
