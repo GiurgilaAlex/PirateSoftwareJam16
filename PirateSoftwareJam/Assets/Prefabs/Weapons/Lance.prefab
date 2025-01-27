@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9006508844985769750
 Transform:
   m_ObjectHideFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730f213438b59b54db612caa0434fa57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPossessed: 0
   isUsed: 0
   shootingPoint: {fileID: 482908152301351921}
   projectile: {fileID: 6579388589175136567, guid: 93d7103610f08234499b403055b18164, type: 3}

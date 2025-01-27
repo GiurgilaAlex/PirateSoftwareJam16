@@ -8,11 +8,14 @@ public class Possessable : MonoBehaviour
     public bool isPossessed = false;
     public bool isUsed = false;
     protected Rigidbody2D rb;
+    protected PlayerController player;
+
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     public virtual void Attack()
@@ -30,6 +33,11 @@ public class Possessable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //outline on
+        }
+
+        if(other.gameObject.CompareTag("BlockEnemy"))
+        {
+            player.UnPossess();
         }
     }
 

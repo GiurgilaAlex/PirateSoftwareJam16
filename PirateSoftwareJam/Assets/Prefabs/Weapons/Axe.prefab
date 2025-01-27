@@ -133,13 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056750a233535d747b02c47a73df9dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPossessed: 0
   isUsed: 0
   speed: 12
   rotationSpeed: 200
   projectileSpawnPoint: {fileID: 2612235930930112176}
   shootingPoint: {fileID: 1552575081440139878}
   arrowSpeed: 100
-  player: {fileID: 0}
   triggerCollider: {fileID: 1817668561874328278}
 --- !u!50 &414954007448956056
 Rigidbody2D:
