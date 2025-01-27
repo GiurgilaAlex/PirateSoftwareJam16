@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             objectToPossess = other;
             possessTooltip.SetActive(true);
+            other.GetComponent<Possessable>().spriteOutline.UpdateOutline(1);
         }
 
         if(other.gameObject.CompareTag("BlockEnemy"))
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour
         {
             objectToPossess = null;
             possessTooltip.SetActive(false);
+            other.GetComponent<Possessable>().spriteOutline.UpdateOutline(0);
         }
 
         if (other.gameObject.CompareTag("BlockEnemy"))

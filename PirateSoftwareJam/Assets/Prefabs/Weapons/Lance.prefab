@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9006508844985769750
 Transform:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPossessed: 0
   isUsed: 0
+  spriteOutline: {fileID: 0}
   shootingPoint: {fileID: 482908152301351921}
   projectile: {fileID: 6579388589175136567, guid: 93d7103610f08234499b403055b18164, type: 3}
   projectileSpawnPoint: {fileID: 3997224036677111591}
@@ -142,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8276607604221097542}
   - component: {fileID: 1150918549152745507}
+  - component: {fileID: 2041203751793142363}
   m_Layer: 8
   m_Name: VFX
   m_TagString: Untagged
@@ -184,7 +186,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: ceda00940120abb498d6374e0b9172d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,6 +218,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2041203751793142363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8986436989852261245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a72247d5aa84112962198463a3c864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 1, a: 1}
+  _spriteRenderer: {fileID: 1150918549152745507}
+  _outlineSize: 0
 --- !u!1001 &4249122681588363310
 PrefabInstance:
   m_ObjectHideFlags: 0

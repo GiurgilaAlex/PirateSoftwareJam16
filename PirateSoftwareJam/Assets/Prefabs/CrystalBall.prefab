@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3166751338276345940}
   - component: {fileID: 8515156041185763495}
   - component: {fileID: 6647686180293983186}
+  - component: {fileID: 8187215098507769175}
   m_Layer: 10
   m_Name: VFX
   m_TagString: Untagged
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: ceda00940120abb498d6374e0b9172d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,6 +107,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8187215098507769175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63865485878824370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a72247d5aa84112962198463a3c864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 1, a: 1}
+  _spriteRenderer: {fileID: 8515156041185763495}
+  _outlineSize: 0
 --- !u!1 &5630182970441378950
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPossessed: 0
   isUsed: 0
+  spriteOutline: {fileID: 0}
   speed: 5
   enemyDetection: {fileID: 5630182970441378950}
   anim: {fileID: 6647686180293983186}
