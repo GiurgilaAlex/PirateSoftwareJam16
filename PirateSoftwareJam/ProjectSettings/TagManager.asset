@@ -9,6 +9,7 @@ TagManager:
   - CrystalBall
   - Wall
   - Ground
+  - BlockEnemy
   layers:
   - Default
   - TransparentFX
